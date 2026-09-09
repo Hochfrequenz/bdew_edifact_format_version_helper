@@ -53,11 +53,13 @@ from efoli.edifact_format_version import _format_version_thresholds, _latest_for
         pytest.param(datetime(2027, 3, 31, 21, 59, 59, tzinfo=timezone.utc), EdifactFormatVersion.FV2610),
         pytest.param(datetime(2027, 3, 31, 22, 0, 0, tzinfo=timezone.utc), EdifactFormatVersion.FV2704),
         # The two params below restate the requirement ("FV2704 starts on 2027-04-01") in local
-        # calendar terms, without the reader having to redo the MESZ arithmetic. They add no
-        # mutation coverage over the two UTC params above: a whole date is localized to Berlin
-        # midnight, which at a threshold is that exact threshold instant.
-        pytest.param(date(2027, 3, 31), EdifactFormatVersion.FV2610, id="last day of FV2610 (documents 22:00Z)"),
-        pytest.param(date(2027, 4, 1), EdifactFormatVersion.FV2704, id="first day of FV2704 (documents 22:00Z)"),
+        # calendar terms, so that a reader need not redo the MESZ arithmetic. Neither adds mutation
+        # coverage over the two UTC params above: date(2027, 4, 1) localizes to exactly the
+        # 22:00Z threshold, and date(2027, 3, 31) localizes a full day below it, well inside the
+        # range the 21:59:59Z param already pins. While every threshold sits at Berlin midnight,
+        # no date-only param can be load-bearing.
+        pytest.param(date(2027, 3, 31), EdifactFormatVersion.FV2610, id="last day of FV2610 (date)"),
+        pytest.param(date(2027, 4, 1), EdifactFormatVersion.FV2704, id="first day of FV2704 (date)"),
     ],
 )
 def test_format_version_from_keydate(key_date: datetime, expected_result: EdifactFormatVersion) -> None:
