@@ -3,10 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python Versions (officially) supported](https://img.shields.io/pypi/pyversions/efoli.svg)
 ![Pypi status badge](https://img.shields.io/pypi/v/efoli)
-![Unittests status badge](https://github.com/Hochfrequenz/efoli/workflows/Unittests/badge.svg)
-![Coverage status badge](https://github.com/Hochfrequenz/efoli/workflows/Coverage/badge.svg)
-![Linting status badge](https://github.com/Hochfrequenz/efoli/workflows/Linting/badge.svg)
-![Formatting status badge](https://github.com/Hochfrequenz/efoli/workflows/Formatting/badge.svg)
+![Unittests status badge](https://github.com/Hochfrequenz/efoli.py/workflows/Unittests/badge.svg)
+![Coverage status badge](https://github.com/Hochfrequenz/efoli.py/workflows/Coverage/badge.svg)
+![Linting status badge](https://github.com/Hochfrequenz/efoli.py/workflows/Linting/badge.svg)
+![Formatting status badge](https://github.com/Hochfrequenz/efoli.py/workflows/Formatting/badge.svg)
 
 `efoli` is a Python package, that contains
 - an Enum `EdifactFormat` that models EDIFACT formats used by German utilities like, e.g.
@@ -19,7 +19,7 @@
   - `FV2404` is valid from 2024-04-03 onwards
   - …
 - helper methods that allow
-  - to derive the `EdifactFormat` from a given _Prüfidentifikator_ (e.g. `55001`➡`UTILMD`)
+  - to derive the `EdifactFormat` from a given _Prüfidentifikator_ (e.g. `55001`➡`UTILMDS`)
   - that derive the `EdifactFormatVersion` from a given date(time) (e.g. `2024-01-01`➡`FV2310`)
 
 It's not much, but we need it at many places.
