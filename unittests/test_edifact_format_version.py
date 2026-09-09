@@ -50,6 +50,10 @@ from efoli.edifact_format_version import _format_version_thresholds, _latest_for
         pytest.param(datetime(2026, 3, 31, 21, 59, 59, tzinfo=timezone.utc), EdifactFormatVersion.FV2510),
         pytest.param(datetime(2026, 3, 31, 22, 0, 0, tzinfo=timezone.utc), EdifactFormatVersion.FV2604),
         pytest.param(datetime(2026, 9, 30, 22, 0, 0, tzinfo=timezone.utc), EdifactFormatVersion.FV2610),
+        pytest.param(datetime(2027, 3, 31, 21, 59, 59, tzinfo=timezone.utc), EdifactFormatVersion.FV2610),
+        pytest.param(datetime(2027, 3, 31, 22, 0, 0, tzinfo=timezone.utc), EdifactFormatVersion.FV2704),
+        pytest.param(date(2027, 3, 31), EdifactFormatVersion.FV2610, id="last day of FV2610 (date)"),
+        pytest.param(date(2027, 4, 1), EdifactFormatVersion.FV2704, id="first day of FV2704 (date)"),
     ],
 )
 def test_format_version_from_keydate(key_date: datetime, expected_result: EdifactFormatVersion) -> None:
@@ -119,6 +123,7 @@ def test_str_representation() -> None:
         pytest.param(EdifactFormatVersion.FV2510, date(2025, 10, 1), id="FV2510"),
         pytest.param(EdifactFormatVersion.FV2604, date(2026, 4, 1), id="FV2604"),
         pytest.param(EdifactFormatVersion.FV2610, date(2026, 10, 1), id="FV2610"),
+        pytest.param(EdifactFormatVersion.FV2704, date(2027, 4, 1), id="FV2704"),
     ],
 )
 def test_format_version_valid_from(version: EdifactFormatVersion, expected_date: date) -> None:
