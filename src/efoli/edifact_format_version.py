@@ -17,7 +17,7 @@ class EdifactFormatVersion(StrEnum):
     """
 
     FV2104 = "FV2104"  #: valid from 2021-04-01 until 2021-10-01
-    FV2110 = "FV2110"  #: valid from 2021-10-01 until 2022-10-01 (MaKo 2022 was postponed from 2022-04-01)
+    FV2110 = "FV2110"  #: valid from 2021-10-01 until 2022-10-01
     FV2210 = "FV2210"  #: valid from 2022-10-01 onwards ("MaKo 2022", was 2204 previously)
     FV2304 = "FV2304"  #: valid from 2023-04-01 onwards
     FV2310 = "FV2310"  #: valid from 2023-10-01 onwards
